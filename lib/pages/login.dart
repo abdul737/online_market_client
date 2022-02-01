@@ -10,6 +10,7 @@ class LoginPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           TextFormField(
+            obscureText: true,
             decoration: const InputDecoration(labelText: 'Phone Number'),
           )
         ],
