@@ -11,7 +11,10 @@ class LoginPage extends StatelessWidget {
         children: [
           TextFormField(
             obscureText: true,
-            decoration: const InputDecoration(labelText: 'Phone Number'),
+            decoration: const InputDecoration(
+              labelText: 'Phone Number',
+              counterText: '',
+            ),
           )
         ],
       ),
