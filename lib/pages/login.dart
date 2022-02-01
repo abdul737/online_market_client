@@ -8,7 +8,11 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [TextFormField()],
+        children: [
+          TextFormField(
+            decoration: const InputDecoration(labelText: 'Phone Number'),
+          )
+        ],
       ),
     );
   }
