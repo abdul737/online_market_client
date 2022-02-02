@@ -15,23 +15,25 @@ class CompleteProfileForm extends StatefulWidget {
 class _CompleteProfileFormState extends State<CompleteProfileForm> {
   final _formKey = GlobalKey<FormState>();
   final List<String> errors = [];
-  String firstName;
-  String lastName;
-  String phoneNumber;
-  String address;
+  String? firstName;
+  String? lastName;
+  String? phoneNumber;
+  String? address;
 
-  void addError({String error}) {
-    if (!errors.contains(error))
+  void addError({required String error}) {
+    if (!errors.contains(error)) {
       setState(() {
         errors.add(error);
       });
+    }
   }
 
-  void removeError({String error}) {
-    if (errors.contains(error))
+  void removeError({required String error}) {
+    if (errors.contains(error)) {
       setState(() {
         errors.remove(error);
       });
+    }
   }
 
   @override
@@ -52,7 +54,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
           DefaultButton(
             text: "continue",
             press: () {
-              if (_formKey.currentState.validate()) {
+              if (_formKey.currentState!.validate()) {
                 Navigator.pushNamed(context, OtpScreen.routeName);
               }
             },
@@ -69,16 +71,15 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kAddressNullError);
         }
-        return null;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value == null || value.isEmpty) {
           addError(error: kAddressNullError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: "Address",
         hintText: "Enter your phone address",
         // If  you are using latest version of flutter then lable text and hint text shown like this
@@ -98,16 +99,15 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
         }
-        return null;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value == null || value.isEmpty) {
           addError(error: kPhoneNumberNullError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: "Phone Number",
         hintText: "Enter your phone number",
         // If  you are using latest version of flutter then lable text and hint text shown like this
@@ -121,7 +121,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
   TextFormField buildLastNameFormField() {
     return TextFormField(
       onSaved: (newValue) => lastName = newValue,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: "Last Name",
         hintText: "Enter your last name",
         // If  you are using latest version of flutter then lable text and hint text shown like this
@@ -139,16 +139,15 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         if (value.isNotEmpty) {
           removeError(error: kNamelNullError);
         }
-        return null;
       },
       validator: (value) {
-        if (value.isEmpty) {
+        if (value == null || value.isEmpty) {
           addError(error: kNamelNullError);
           return "";
         }
         return null;
       },
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         labelText: "First Name",
         hintText: "Enter your first name",
         // If  you are using latest version of flutter then lable text and hint text shown like this

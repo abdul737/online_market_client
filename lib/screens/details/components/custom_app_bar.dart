@@ -3,13 +3,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../size_config.dart';
 
-class CustomAppBar extends PreferredSize {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double rating;
 
-  CustomAppBar({required this.rating});
+  const CustomAppBar({Key? key, required this.rating}) : super(key: key);
 
   @override
-  // AppBar().preferredSize.height provide us the height that appy on our app bar
   Size get preferredSize => Size.fromHeight(AppBar().preferredSize.height);
 
   @override
@@ -36,7 +35,7 @@ class CustomAppBar extends PreferredSize {
                 ),
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 5),
               decoration: BoxDecoration(

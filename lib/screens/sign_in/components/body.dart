@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/components/no_account_text.dart';
-import 'package:shop_app/components/socal_card.dart';
-onents/socal_card.dart';
+import 'package:online_market_client/components/no_account_text.dart';
+import 'package:online_market_client/components/socal_card.dart';
+
 import '../../../size_config.dart';
 import 'sign_form.dart';
 
@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
+                const Text(
                   "Sign in with your email and password  \nor continue with social media",
                   textAlign: TextAlign.center,
                 ),
@@ -51,7 +51,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: getProportionateScreenHeight(20)),
-                NoAccountText(),
+                const NoAccountText(),
               ],
             ),
           ),
