@@ -6,7 +6,7 @@ import '../../../constants.dart';
 
 class OtpForm extends StatefulWidget {
   const OtpForm({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

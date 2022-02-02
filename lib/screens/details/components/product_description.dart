@@ -7,8 +7,8 @@ import '../../../size_config.dart';
 
 class ProductDescription extends StatelessWidget {
   const ProductDescription({
-    Key key,
-    @required this.product,
+    Key? key,
+    required this.product,
     this.pressOnSeeMore,
   }) : super(key: key);
 

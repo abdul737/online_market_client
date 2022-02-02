@@ -5,13 +5,13 @@ import '../size_config.dart';
 
 class SocalCard extends StatelessWidget {
   const SocalCard({
-    Key key,
-    this.icon,
-    this.press,
+    Key? key,
+    required this.icon,
+    required this.press,
   }) : super(key: key);
 
   final String icon;
-  final Function press;
+  final void Function()? press;
 
   @override
   Widget build(BuildContext context) {

@@ -5,9 +5,9 @@ import '../../../constants.dart';
 
 class ProfileMenu extends StatelessWidget {
   const ProfileMenu({
-    Key key,
-    @required this.text,
-    @required this.icon,
+    Key? key,
+    required this.text,
+    required this.icon,
     this.press,
   }) : super(key: key);
 
