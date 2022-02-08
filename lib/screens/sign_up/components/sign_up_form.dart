@@ -140,7 +140,7 @@ class _SignUpFormState extends State<SignUpForm> {
         if (value.isNotEmpty) {
           removeError(error: kEmailNullError);
         } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: kInvalidEmailError);
+          removeError(error: kInvalidPhoneNumberError);
         }
       },
       validator: (value) {
@@ -148,7 +148,7 @@ class _SignUpFormState extends State<SignUpForm> {
           addError(error: kEmailNullError);
           return "";
         } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
+          addError(error: kInvalidPhoneNumberError);
           return "";
         }
         return null;
