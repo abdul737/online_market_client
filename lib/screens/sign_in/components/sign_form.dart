@@ -18,7 +18,7 @@ class SignForm extends StatefulWidget {
 
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
-  String? number;
+  String? phoneNumber;
   String? password;
   bool remember = false;
   final List<String> errors = [];
@@ -125,7 +125,7 @@ class _SignFormState extends State<SignForm> {
   TextFormField buildPhoneNumber() {
     return TextFormField(
       keyboardType: TextInputType.number,
-      onSaved: (newValue) => number = newValue,
+      onSaved: (newValue) => phoneNumber = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
