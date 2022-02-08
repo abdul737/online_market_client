@@ -25,7 +25,7 @@ const defaultDuration = Duration(milliseconds: 250);
 // Form Error
 final RegExp emailValidatorRegExp =
     RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+"); // deprecated
-final RegExp phoneNumberValidatorRegExp = RegExp(r"\d{9}");
+final RegExp phoneNumberValidatorRegExp = RegExp(r"^\d{9}$");
 const String kInvalidPhoneNumberError = "Enter Valid Phone number";
 const String kPassNullError = "Please Enter your password";
 const String kShortPassError = "Password is too short";
