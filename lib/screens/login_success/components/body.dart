@@ -4,6 +4,8 @@ import 'package:online_market_client/screens/home/home_screen.dart';
 import 'package:online_market_client/size_config.dart';
 
 class Body extends StatelessWidget {
+  const Body({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(

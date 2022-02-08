@@ -8,6 +8,7 @@ import '../../../constants.dart';
 import '../../../size_config.dart';
 
 class CompleteProfileForm extends StatefulWidget {
+  const CompleteProfileForm({Key? key}) : super(key: key);
   @override
   _CompleteProfileFormState createState() => _CompleteProfileFormState();
 }
