@@ -4,6 +4,8 @@ import 'package:online_market_client/size_config.dart';
 import 'components/body.dart';
 
 class OtpScreen extends StatelessWidget {
+  const OtpScreen({Key? key}) : super(key: key);
+
   static String routeName = "/otp";
   @override
   Widget build(BuildContext context) {
