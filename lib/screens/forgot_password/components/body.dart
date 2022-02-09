@@ -67,9 +67,9 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                   errors.remove(kEmailNullError);
                 });
               } else if (emailValidatorRegExp.hasMatch(value) &&
-                  errors.contains(kInvalidEmailError)) {
+                  errors.contains(kInvalidPhoneNumberError)) {
                 setState(() {
-                  errors.remove(kInvalidEmailError);
+                  errors.remove(kInvalidPhoneNumberError);
                 });
               }
             },
@@ -80,9 +80,9 @@ class _ForgotPassFormState extends State<ForgotPassForm> {
                   errors.add(kEmailNullError);
                 });
               } else if (!emailValidatorRegExp.hasMatch(value) &&
-                  !errors.contains(kInvalidEmailError)) {
+                  !errors.contains(kInvalidPhoneNumberError)) {
                 setState(() {
-                  errors.add(kInvalidEmailError);
+                  errors.add(kInvalidPhoneNumberError);
                 });
               }
               return null;
