@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/no_account_text.dart';
 import 'package:online_market_client/components/socal_card.dart';
@@ -10,55 +11,66 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SizedBox(
-        width: double.infinity,
-        child: Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SingleChildScrollView(
-            child: Column(
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: (20)),
+        // child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.04),
                 Text(
                   "Welcome Back",
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: getProportionateScreenWidth(28),
+                    fontSize: getProportionateScreenWidth(30),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const Text(
-                  "Sign in with your email and password  \nor continue with social media",
+                  "Sign in with your phone number",
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                SignForm(),
-                SizedBox(height: SizeConfig.screenHeight * 0.08),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SocalCard(
-                      icon: "assets/icons/google-icon.svg",
-                      press: () {},
-                    ),
-                    SocalCard(
-                      icon: "assets/icons/facebook-2.svg",
-                      press: () {},
-                    ),
-                    SocalCard(
-                      icon: "assets/icons/twitter.svg",
-                      press: () {},
-                    ),
-                  ],
-                ),
-                SizedBox(height: getProportionateScreenHeight(20)),
-                const NoAccountText(),
               ],
             ),
-          ),
+            const SignForm(),
+          ],
         ),
       ),
     );
+    // SafeArea(
+    //   child: SizedBox(
+    //     width: double.infinity,
+    //     child: Padding(
+    //       padding:
+    //           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
+    //       child: SingleChildScrollView(
+    //         child: Column(
+    //           children: [
+    //             Column(
+    //               children: [
+    //                 Text(
+    //                   "Welcome Back",
+    //                   style: TextStyle(
+    //                     color: Colors.black,
+    //                     fontSize: getProportionateScreenWidth(30),
+    //                     fontWeight: FontWeight.bold,
+    //                   ),
+    //                 ),
+    //                 const Text(
+    //                   "Sign in with your phone number",
+    //                   textAlign: TextAlign.center,
+    //                 ),
+    //               ],
+    //             ),
+    //             const SignForm(),
+    //             SizedBox(height: getProportionateScreenHeight(20)),
+    //           ],
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 }
