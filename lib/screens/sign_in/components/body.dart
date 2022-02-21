@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:online_market_client/components/no_account_text.dart';
-import 'package:online_market_client/components/socal_card.dart';
 
 import '../../../size_config.dart';
 import 'sign_form.dart';
@@ -13,8 +10,7 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: (20)),
-        // child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: (20)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

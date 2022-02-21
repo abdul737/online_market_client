@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_market_client/models/Product.dart';
 import '../../../components/if_description.dart';
 import '../../../constants.dart';
