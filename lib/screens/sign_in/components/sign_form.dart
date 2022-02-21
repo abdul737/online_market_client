@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:online_market_client/components/custom_suffix_icon.dart';
 import 'package:online_market_client/components/form_error.dart';
 import 'package:online_market_client/helper/keyboard.dart';
-import 'package:online_market_client/screens/forgot_password/forgot_password_screen.dart';
 import 'package:online_market_client/screens/login_success/login_success_screen.dart';
 
 import '../../../components/default_button.dart';
@@ -46,34 +45,8 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: [
           buildPhoneNumber(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          Row(
-            children: [
-              Checkbox(
-                value: remember,
-                activeColor: kPrimaryColor,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value != null && value;
-                  });
-                },
-              ),
-              const Text("Remember me"),
-              const Spacer(),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: const Text(
-                  "Forgot Password",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
-            ],
-          ),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20)),
+          // FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(150)),
           DefaultButton(
             text: "Continue",
             press: () {
@@ -86,38 +59,6 @@ class _SignFormState extends State<SignForm> {
             },
           ),
         ],
-      ),
-    );
-  }
-
-  TextFormField buildPasswordFormField() {
-    return TextFormField(
-      obscureText: true,
-      onSaved: (newValue) => password = newValue,
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
-        } else if (value.length >= 8) {
-          removeError(error: kShortPassError);
-        }
-      },
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        } else if (value.length < 8) {
-          addError(error: kShortPassError);
-          return "";
-        }
-        return null;
-      },
-      decoration: const InputDecoration(
-        labelText: "Password",
-        hintText: "Enter your password",
-        // If  you are using latest version of flutter then lable text and hint text shown like this
-        // if you r using flutter less then 1.20.* then maybe this is not working properly
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
@@ -149,7 +90,7 @@ class _SignFormState extends State<SignForm> {
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly
         floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Mail.svg"),
+        suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Phone.svg"),
       ),
     );
   }
