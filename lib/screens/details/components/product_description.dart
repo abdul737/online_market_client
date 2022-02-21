@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_market_client/models/Product.dart';
-
+import '../../../components/if_description.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
@@ -28,25 +28,8 @@ class ProductDescription extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.centerRight,
-          child: Container(
-            padding: EdgeInsets.all(getProportionateScreenWidth(15)),
-            width: getProportionateScreenWidth(64),
-            decoration: BoxDecoration(
-              color: product.isFavourite
-                  ? const Color(0xFFFFE6E6)
-                  : const Color(0xFFF5F6F9),
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(20),
-                bottomLeft: Radius.circular(20),
-              ),
-            ),
-            child: SvgPicture.asset(
-              "assets/icons/Heart Icon_2.svg",
-              color: product.isFavourite
-                  ? const Color(0xFFFF4848)
-                  : const Color(0xFFDBDEE4),
-              height: getProportionateScreenWidth(16),
-            ),
+          child: FavoriteWidget(
+            isFavourite: product.isFavourite,
           ),
         ),
         Padding(

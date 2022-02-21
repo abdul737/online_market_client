@@ -45,7 +45,8 @@ class _SignFormState extends State<SignForm> {
       child: Column(
         children: [
           buildPhoneNumber(),
-          // FormError(errors: errors),
+          SizedBox(height: getProportionateScreenHeight(30)),
+          FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(150)),
           DefaultButton(
             text: "Continue",

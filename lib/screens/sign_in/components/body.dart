@@ -39,38 +39,5 @@ class Body extends StatelessWidget {
         ),
       ),
     );
-    // SafeArea(
-    //   child: SizedBox(
-    //     width: double.infinity,
-    //     child: Padding(
-    //       padding:
-    //           EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-    //       child: SingleChildScrollView(
-    //         child: Column(
-    //           children: [
-    //             Column(
-    //               children: [
-    //                 Text(
-    //                   "Welcome Back",
-    //                   style: TextStyle(
-    //                     color: Colors.black,
-    //                     fontSize: getProportionateScreenWidth(30),
-    //                     fontWeight: FontWeight.bold,
-    //                   ),
-    //                 ),
-    //                 const Text(
-    //                   "Sign in with your phone number",
-    //                   textAlign: TextAlign.center,
-    //                 ),
-    //               ],
-    //             ),
-    //             const SignForm(),
-    //             SizedBox(height: getProportionateScreenHeight(20)),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
   }
 }
