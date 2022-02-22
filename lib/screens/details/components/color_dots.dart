@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/components/rounded_icon_btn.dart';
 import 'package:online_market_client/models/Product.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
+import 'count_quantity.dart';
 
 class ColorDots extends StatelessWidget {
   const ColorDots({
@@ -30,16 +30,7 @@ class ColorDots extends StatelessWidget {
             ),
           ),
           Spacer(),
-          RoundedIconBtn(
-            icon: Icons.remove,
-            press: () {},
-          ),
-          SizedBox(width: getProportionateScreenWidth(20)),
-          RoundedIconBtn(
-            icon: Icons.add,
-            showShadow: true,
-            press: () {},
-          ),
+          CountQuantityWidget(),
         ],
       ),
     );
