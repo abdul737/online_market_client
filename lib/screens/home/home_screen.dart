@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:online_market_client/components/coustom_bottom_nav_bar.dart';
 import 'package:online_market_client/enums.dart';
 
@@ -10,9 +11,16 @@ class HomeScreen extends StatelessWidget {
   static String routeName = "/home";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Body(),
-      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
+    return const AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+        statusBarBrightness: Brightness.light, // For iOS (dark icons)
+      ),
+      child: Scaffold(
+        body: Body(),
+        bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
+      ),
     );
   }
 }
