@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:online_market_client/routes.dart';
 import 'package:online_market_client/screens/splash/splash_screen.dart';
 import 'package:online_market_client/theme.dart';
-import 'package:flutter/services.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.white
-  ));
   runApp(const MyApp());
 }
 
