@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:online_market_client/size_config.dart';
 
 import 'components/body.dart';
 
@@ -10,7 +9,7 @@ class OtpScreen extends StatelessWidget {
   static String routeName = "/otp";
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    final phoneNumber = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffffa000),
@@ -19,9 +18,9 @@ class OtpScreen extends StatelessWidget {
           statusBarIconBrightness: Brightness.light, // For Android (dark icons)
           statusBarBrightness: Brightness.dark, // For iOS (dark icons)
         ),
-        title: Text("OTP Verification"),
+        title: const Text("OTP Verification"),
       ),
-      body: Body(),
+      body: Body(phoneNumber: phoneNumber),
     );
   }
 }

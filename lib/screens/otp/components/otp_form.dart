@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/components/default_button.dart';
+import 'package:online_market_client/screens/home/home_screen.dart';
 import 'package:online_market_client/size_config.dart';
 
 import '../../../constants.dart';
@@ -40,77 +40,72 @@ class _OtpFormState extends State<OtpForm> {
     }
   }
 
+  void checkOtpCode() {
+    Navigator.pushNamed(context, HomeScreen.routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(height: SizeConfig.screenHeight * 0.15),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                width: getProportionateScreenWidth(60),
-                child: TextFormField(
-                  autofocus: true,
-                  obscureText: true,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) {
-                    nextField(value, pin2FocusNode);
-                  },
-                ),
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(60),
-                child: TextFormField(
-                  focusNode: pin2FocusNode,
-                  obscureText: true,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) => nextField(value, pin3FocusNode),
-                ),
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(60),
-                child: TextFormField(
-                  focusNode: pin3FocusNode,
-                  obscureText: true,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) => nextField(value, pin4FocusNode),
-                ),
-              ),
-              SizedBox(
-                width: getProportionateScreenWidth(60),
-                child: TextFormField(
-                  focusNode: pin4FocusNode,
-                  obscureText: true,
-                  style: const TextStyle(fontSize: 24),
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: otpInputDecoration,
-                  onChanged: (value) {
-                    if (value.length == 1) {
-                      pin4FocusNode.unfocus();
-                      // Then you need to check is the code is correct or not
-                    }
-                  },
-                ),
-              ),
-            ],
+          SizedBox(
+            width: getProportionateScreenWidth(60),
+            child: TextFormField(
+              autofocus: true,
+              obscureText: true,
+              style: const TextStyle(fontSize: 24),
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              decoration: otpInputDecoration,
+              onChanged: (value) {
+                nextField(value, pin2FocusNode);
+              },
+            ),
           ),
-          SizedBox(height: SizeConfig.screenHeight * 0.15),
-          DefaultButton(
-            text: "Continue",
-            press: () {},
-          )
+          SizedBox(
+            width: getProportionateScreenWidth(60),
+            child: TextFormField(
+              focusNode: pin2FocusNode,
+              obscureText: true,
+              style: const TextStyle(fontSize: 24),
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              decoration: otpInputDecoration,
+              onChanged: (value) => nextField(value, pin3FocusNode),
+            ),
+          ),
+          SizedBox(
+            width: getProportionateScreenWidth(60),
+            child: TextFormField(
+              focusNode: pin3FocusNode,
+              obscureText: true,
+              style: const TextStyle(fontSize: 24),
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              decoration: otpInputDecoration,
+              onChanged: (value) => nextField(value, pin4FocusNode),
+            ),
+          ),
+          SizedBox(
+            width: getProportionateScreenWidth(60),
+            child: TextFormField(
+              focusNode: pin4FocusNode,
+              obscureText: true,
+              style: const TextStyle(fontSize: 24),
+              keyboardType: TextInputType.number,
+              textAlign: TextAlign.center,
+              decoration: otpInputDecoration,
+              onChanged: (value) {
+                if (value.length == 1) {
+                  pin4FocusNode.unfocus();
+                  // Then you need to check is the code is correct or not
+                  checkOtpCode();
+                }
+              },
+            ),
+          ),
         ],
       ),
     );

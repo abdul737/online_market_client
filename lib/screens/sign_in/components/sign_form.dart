@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:online_market_client/components/custom_suffix_icon.dart';
 import 'package:online_market_client/components/form_error.dart';
 import 'package:online_market_client/helper/keyboard.dart';
-import 'package:online_market_client/screens/login_success/login_success_screen.dart';
+import 'package:online_market_client/screens/otp/otp_screen.dart';
 
 import '../../../components/default_button.dart';
 import '../../../constants.dart';
-import '../../../size_config.dart';
 
 class SignForm extends StatefulWidget {
   const SignForm({Key? key}) : super(key: key);
@@ -18,8 +17,6 @@ class SignForm extends StatefulWidget {
 class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   String? phoneNumber;
-  String? password;
-  bool remember = false;
   final List<String> errors = [];
 
   void addError({required String error}) {
@@ -38,36 +35,52 @@ class _SignFormState extends State<SignForm> {
     }
   }
 
+  void submitForm() {
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      // if all are valid then go to success screen
+      KeyboardUtil.hideKeyboard(context);
+      Navigator.pushNamed(
+        context,
+        OtpScreen.routeName,
+        arguments: int.parse(phoneNumber!),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisSize: MainAxisSize.max,
         children: [
-          buildPhoneNumber(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(150)),
+          Column(
+            children: [
+              buildPhoneNumber(onEditingComplete: submitForm),
+              Container(
+                margin: const EdgeInsets.only(top: 10, left: 10),
+                child: FormError(errors: errors),
+              ),
+            ],
+          ),
           DefaultButton(
             text: "Continue",
-            press: () {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save();
-                // if all are valid then go to success screen
-                KeyboardUtil.hideKeyboard(context);
-                Navigator.pushNamed(context, LoginSuccessScreen.routeName);
-              }
-            },
+            press: submitForm,
           ),
         ],
       ),
     );
   }
 
-  TextFormField buildPhoneNumber() {
+  TextFormField buildPhoneNumber({
+    required void Function()? onEditingComplete,
+  }) {
     return TextFormField(
       keyboardType: TextInputType.number,
       onSaved: (newValue) => phoneNumber = newValue,
+      onEditingComplete: onEditingComplete,
       onChanged: (value) {
         if (value.isNotEmpty) {
           removeError(error: kPhoneNumberNullError);
@@ -88,9 +101,14 @@ class _SignFormState extends State<SignForm> {
       decoration: const InputDecoration(
         labelText: "Phone number",
         hintText: "Enter your phone number",
-
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSuffixIcon(svgIcon: "assets/icons/Phone.svg"),
+        prefixIcon: SizedBox(
+          width: 60,
+          child: Center(
+            child: Text('+998'),
+          ),
+        ),
       ),
     );
   }

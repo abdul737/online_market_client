@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/models/Product.dart';
-import '../../../components/if_description.dart';
+
+import '../../../components/favorite_widget.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
@@ -18,17 +19,21 @@ class ProductDescription extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding:
-              EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: Text(
-            product.title,
-            style: Theme.of(context).textTheme.headline6,
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerRight,
-          child: FavoriteWidget(
-            isFavourite: product.isFavourite,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: Text(
+                  product.title,
+                  style: Theme.of(context).textTheme.headline6,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              FavoriteWidget(
+                isFavourite: product.isFavourite,
+              ),
+            ],
           ),
         ),
         Padding(
