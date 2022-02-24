@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_market_client/models/Product.dart';
 import 'package:online_market_client/screens/details/details_screen.dart';
-import 'if_description.dart';
+
 import '../constants.dart';
 import '../size_config.dart';
+import 'favorite_widget.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
     this.width = 140,
-    this.aspectRetio = 1.02,
+    this.aspectRatio = 1.02,
     required this.product,
   }) : super(key: key);
 
-  final double width, aspectRetio;
+  final double width, aspectRatio;
   final Product product;
 
   @override
@@ -49,7 +49,8 @@ class ProductCard extends StatelessWidget {
               const SizedBox(height: 10),
               Text(
                 product.title,
-                style: TextStyle(color: Colors.black),
+                style: const TextStyle(color: Colors.black),
+                overflow: TextOverflow.ellipsis,
                 maxLines: 2,
               ),
               Row(

@@ -10,27 +10,33 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: (20)),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Column(
-              children: [
-                Text(
-                  "Welcome Back",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: getProportionateScreenWidth(30),
-                    fontWeight: FontWeight.bold,
+            Expanded(
+              flex: 3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Welcome Back",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: getProportionateScreenWidth(30),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const Text(
-                  "Sign in with your phone number",
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                  const Text(
+                    "Sign in with your phone number",
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
-            const SignForm(),
+            const Expanded(
+              flex: 7,
+              child: SignForm(),
+            ),
           ],
         ),
       ),

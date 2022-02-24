@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/rounded_icon_btn.dart';
 
+const minQuantity = 1;
+const maxQuantity = 100;
+
 class CountQuantityWidget extends StatefulWidget {
   const CountQuantityWidget({Key? key}) : super(key: key);
 
@@ -14,25 +17,29 @@ class _CountQuantityWidgetState extends State<CountQuantityWidget> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        SizedBox(width: (20)),
         RoundedIconBtn(icon: Icons.remove, press: _subtractQuantity),
-        Text('$quantity'),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text('$quantity'),
+        ),
         RoundedIconBtn(icon: Icons.add, press: _addQuantity)
       ],
     );
   }
 
   void _addQuantity() {
-    setState(() {
-      quantity += 1;
-    });
+    if (maxQuantity > quantity) {
+      setState(() {
+        quantity += 1;
+      });
+    }
   }
 
   void _subtractQuantity() {
-    setState(() {
-      if (2 <= quantity) {
+    if (minQuantity < quantity) {
+      setState(() {
         quantity -= 1;
-      }
-    });
+      });
+    }
   }
 }
