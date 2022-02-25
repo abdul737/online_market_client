@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:online_market_client/components/common_app_bar.dart';
 import 'package:online_market_client/components/coustom_bottom_nav_bar.dart';
 import 'package:online_market_client/enums.dart';
 
@@ -11,14 +11,9 @@ class ProfileScreen extends StatelessWidget {
   static String routeName = "/profile";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.light, // For iOS (dark icons)
-        ),
-        title: Text("Profile"),
+    return const Scaffold(
+      appBar: CommonAppBar(
+        title: "Profile",
       ),
       body: Body(),
       bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),

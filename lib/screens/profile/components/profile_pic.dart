@@ -15,7 +15,7 @@ class ProfilePic extends StatelessWidget {
         fit: StackFit.expand,
         overflow: Overflow.visible,
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: AssetImage("assets/images/Profile Image.png"),
           ),
           Positioned(
@@ -27,9 +27,9 @@ class ProfilePic extends StatelessWidget {
               child: FlatButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
-                  side: BorderSide(color: Colors.white),
+                  side: const BorderSide(color: Colors.white),
                 ),
-                color: Color(0xFFF5F6F9),
+                color: const Color(0xFFF5F6F9),
                 onPressed: () {},
                 child: SvgPicture.asset("assets/icons/Camera Icon.svg"),
               ),
