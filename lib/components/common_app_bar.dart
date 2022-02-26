@@ -5,7 +5,7 @@ import 'package:online_market_client/constants.dart';
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CommonAppBar({
     required this.title,
-    this.subtitle = '${null}',
+    this.subtitle = '',
     Key? key,
   }) : super(key: key);
 
@@ -27,7 +27,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Column(
         children: [
           Text(title, style: const TextStyle(color: kAppBarTextColor)),
-          if (subtitle != '${null}')
+          if (subtitle != '')
             Text(
               subtitle,
               style: const TextStyle(color: kAppBarTextColor, fontSize: 14),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/size_config.dart';
 
+const kBackgroundColor = Color(0xFFF5F6F9);
 const kPrimaryColor = Color(0xfff57c00);
 const kStatusBarColor = Color(0xffbb4d00);
 const kStatusBarIconBrightness = Brightness.light; // For Android (dark icons)
