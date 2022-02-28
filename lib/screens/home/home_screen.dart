@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:online_market_client/components/coustom_bottom_nav_bar.dart';
+import 'package:online_market_client/constants.dart';
 import 'package:online_market_client/enums.dart';
 
 import 'components/body.dart';
@@ -13,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle(
-        statusBarColor: Colors.white,
+        statusBarColor: kBackgroundColor,
         statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
         statusBarBrightness: Brightness.light, // For iOS (dark icons)
       ),

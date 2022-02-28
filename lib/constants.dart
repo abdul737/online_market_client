@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/size_config.dart';
 
-const kPrimaryColor = Color(0xFFFF7643);
+const kBackgroundColor = Color(0xFFF5F6F9);
+const kPrimaryColor = Color(0xfff57c00);
+const kStatusBarColor = Color(0xffbb4d00);
+const kStatusBarIconBrightness = Brightness.light; // For Android (dark icons)
+const kStatusBarBrightness = Brightness.dark; // For iOS (dark icons)
+const kAppBarTextColor = Colors.black;
+
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
@@ -9,7 +15,7 @@ const kPrimaryGradientColor = LinearGradient(
   colors: [Color(0xFFFFA53E), Color(0xFFFF7643)],
 );
 const kSecondaryColor = Color(0xFF979797);
-const kTextColor = Color(0xFF757575);
+const kTextColor = Color(0xFF4C4C4C);
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
