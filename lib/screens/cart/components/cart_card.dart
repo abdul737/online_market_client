@@ -26,7 +26,10 @@ class CartCard extends StatelessWidget {
                 color: const Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.asset(cart.product.images[0]),
+              child: Hero(
+                tag: cart.product.id.toString(),
+                child: Image.asset(cart.product.images[0]),
+              ),
             ),
           ),
         ),
