@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:online_market_client/constants.dart';
 import 'package:online_market_client/screens/splash/components/body.dart';
 import 'package:online_market_client/size_config.dart';
 
@@ -11,15 +12,15 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // You have to call it on your starting screen
     SizeConfig().init(context);
-    return Scaffold(
-      appBar: AppBar(
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.light, // For iOS (dark icons)
-        ),
+    return const AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        statusBarColor: kBackgroundColor,
+        statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+        statusBarBrightness: Brightness.light, // For iOS (dark icons)
       ),
-      body: const Body(),
+      child: Scaffold(
+        body: Body(),
+      ),
     );
   }
 }

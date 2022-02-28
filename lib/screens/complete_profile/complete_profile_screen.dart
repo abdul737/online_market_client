@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_market_client/components/common_app_bar.dart';
 
 import 'components/body.dart';
 
@@ -8,11 +9,9 @@ class CompleteProfileScreen extends StatelessWidget {
   static String routeName = "/complete_profile";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sign Up'),
-      ),
-      body: const Body(),
+    return const Scaffold(
+      appBar: CommonAppBar(title: 'Sign Up'),
+      body: Body(),
     );
   }
 }
