@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
