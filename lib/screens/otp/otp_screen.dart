@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:online_market_client/components/common_app_bar.dart';
 
 import 'components/body.dart';
@@ -11,8 +10,8 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final phoneNumber = ModalRoute.of(context)!.settings.arguments as int;
-    return const Scaffold(
-      appBar: CommonAppBar(
+    return Scaffold(
+      appBar: const CommonAppBar(
         title: "OTP Verification",
       ),
       body: Body(phoneNumber: phoneNumber),
