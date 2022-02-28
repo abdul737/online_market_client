@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:online_market_client/constants.dart';
 
 import '../../models/Product.dart';
@@ -14,12 +15,19 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProductDetailsArguments args =
         ModalRoute.of(context)?.settings.arguments as ProductDetailsArguments;
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      appBar: CustomAppBar(
-        rating: args.product.rating,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: kBackgroundColor,
+        statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+        statusBarBrightness: Brightness.light, // For iOS (dark icons)
       ),
-      body: Body(product: args.product),
+      child: Scaffold(
+        backgroundColor: kBackgroundColor,
+        appBar: CustomAppBar(
+          rating: args.product.rating,
+        ),
+        body: Body(product: args.product),
+      ),
     );
   }
 }
