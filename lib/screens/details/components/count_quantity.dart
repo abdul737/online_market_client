@@ -5,7 +5,10 @@ const minQuantity = 1;
 const maxQuantity = 100;
 
 class CountQuantityWidget extends StatefulWidget {
-  const CountQuantityWidget({Key? key}) : super(key: key);
+  final int numOfItems;
+
+  const CountQuantityWidget({Key? key, required this.numOfItems})
+      : super(key: key);
 
   @override
   _CountQuantityWidgetState createState() => _CountQuantityWidgetState();

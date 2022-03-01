@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/screens/details/details_screen.dart';
 
-import '../../../size_config.dart';
 import 'cart_card.dart';
 
 class Body extends StatefulWidget {
@@ -17,9 +16,7 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: getProportionateScreenWidth(20),
-      ),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: ListView.builder(
         itemCount: demoCarts.length,
         itemBuilder: (context, index) => GestureDetector(

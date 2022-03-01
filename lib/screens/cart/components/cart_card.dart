@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/models/Cart.dart';
+import 'package:online_market_client/screens/details/components/count_quantity.dart';
 
 import '../../../constants.dart';
 import '../../../size_config.dart';
@@ -33,30 +34,36 @@ class CartCard extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 20),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              cart.product.title,
-              style: const TextStyle(color: Colors.black, fontSize: 16),
-              maxLines: 2,
-            ),
-            const SizedBox(height: 10),
-            Text.rich(
-              TextSpan(
-                text: "\$${cart.product.price}",
-                style: const TextStyle(
-                    fontWeight: FontWeight.w600, color: kPrimaryColor),
+        IntrinsicWidth(
+          child: Column(
+            children: [
+              Row(
                 children: [
-                  TextSpan(
-                      text: " x${cart.numOfItem}",
-                      style: Theme.of(context).textTheme.bodyText1),
+                  Text(
+                    cart.product.title,
+                    style: const TextStyle(color: Colors.black, fontSize: 16),
+                    maxLines: 2,
+                  ),
                 ],
               ),
-            )
-          ],
-        )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "\$${cart.product.price}",
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: kPrimaryColor,
+                    ),
+                  ),
+                  CountQuantityWidget(
+                    numOfItems: cart.numOfItem,
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }

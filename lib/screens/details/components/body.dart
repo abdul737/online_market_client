@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/default_button.dart';
+import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/models/Product.dart';
 import 'package:online_market_client/size_config.dart';
 
@@ -10,8 +11,12 @@ import 'top_rounded_container.dart';
 
 class Body extends StatelessWidget {
   final Product product;
-
-  const Body({Key? key, required this.product}) : super(key: key);
+  final Cart numOfItems;
+  const Body({
+    Key? key,
+    required this.product,
+    required this.numOfItems,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +32,7 @@ class Body extends StatelessWidget {
                 color: const Color(0xFFF6F7F9),
                 child: Column(
                   children: [
-                    ColorDots(product: product),
+                    ColorDots(product: product, cart: numOfItems),
                     TopRoundedContainer(
                       color: Colors.white,
                       child: Padding(

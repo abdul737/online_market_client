@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:online_market_client/constants.dart';
+import 'package:online_market_client/models/Cart.dart';
 
 import '../../models/Product.dart';
 import 'components/body.dart';
@@ -26,7 +27,10 @@ class DetailsScreen extends StatelessWidget {
         appBar: CustomAppBar(
           rating: args.product.rating,
         ),
-        body: Body(product: args.product),
+        body: Body(
+          product: args.product,
+          numOfItems:  ,
+        ),
       ),
     );
   }
