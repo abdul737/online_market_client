@@ -4,7 +4,7 @@ import 'package:online_market_client/screens/complete_profile/complete_profile_s
 import 'package:online_market_client/screens/details/details_screen.dart';
 import 'package:online_market_client/screens/home/home_screen.dart';
 import 'package:online_market_client/screens/otp/otp_screen.dart';
-import 'package:online_market_client/screens/products%20_ekran/product_screen.dart';
+import 'package:online_market_client/screens/products/products_screen.dart';
 import 'package:online_market_client/screens/profile/profile_screen.dart';
 import 'package:online_market_client/screens/sign_in/sign_in_screen.dart';
 import 'package:online_market_client/screens/splash/splash_screen.dart';
@@ -20,5 +20,5 @@ final Map<String, WidgetBuilder> routes = {
   DetailsScreen.routeName: (context) => DetailsScreen(),
   CartScreen.routeName: (context) => CartScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
-  ProductsScreen.routeName: (contexs) => ProductsScreen()
+  ProductsScreen.routeName: (context) => ProductsScreen()
 };

@@ -10,17 +10,19 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
     this.width = 140,
-    this.aspectRatio = 1.02,
+    this.aspectRatio = 0.6,
+    this.padding = EdgeInsets.zero,
     required this.product,
   }) : super(key: key);
 
   final double width, aspectRatio;
   final Product product;
+  final EdgeInsetsGeometry padding;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: padding,
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
@@ -47,11 +49,14 @@ class ProductCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                product.title,
-                style: const TextStyle(color: Colors.black),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
+              SizedBox(
+                height: 40,
+                child: Text(
+                  product.title,
+                  style: const TextStyle(color: Colors.black),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

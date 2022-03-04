@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_market_client/screens/home/home_screen.dart';
-import 'package:online_market_client/screens/products%20_ekran/product_screen.dart';
+import 'package:online_market_client/screens/products/products_screen.dart';
 import 'package:online_market_client/screens/profile/profile_screen.dart';
 
 import '../constants.dart';
