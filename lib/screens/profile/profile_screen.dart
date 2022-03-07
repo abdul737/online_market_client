@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/common_app_bar.dart';
-import 'package:online_market_client/components/coustom_bottom_nav_bar.dart';
-import 'package:online_market_client/enums.dart';
+import 'package:online_market_client/screens/home/bottom_nav_bar.dart';
 
 import 'components/body.dart';
 
@@ -16,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
         title: "Profile",
       ),
       body: Body(),
-      bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
