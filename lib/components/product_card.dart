@@ -82,6 +82,7 @@ class ProductCard extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: FavoriteWidget(
                       isFavourite: product.isFavourite,
+                      size: size,
                     ),
                   ),
                 ],

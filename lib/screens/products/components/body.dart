@@ -3,7 +3,7 @@ import 'package:online_market_client/components/product_card.dart';
 import 'package:online_market_client/enums.dart';
 import 'package:online_market_client/models/Product.dart';
 
-const _aspectRatio = 0.54;
+const _aspectRatio = 0.6;
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
