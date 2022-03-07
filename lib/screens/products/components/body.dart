@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/product_card.dart';
+import 'package:online_market_client/enums.dart';
 import 'package:online_market_client/models/Product.dart';
 
 const _aspectRatio = 0.54;
@@ -22,6 +23,7 @@ class Body extends StatelessWidget {
         return ProductCard(
           product: demoProducts[i],
           aspectRatio: _aspectRatio,
+          size: Sizes.small,
         );
       },
     );

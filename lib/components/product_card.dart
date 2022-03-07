@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_market_client/enums.dart';
 import 'package:online_market_client/models/Product.dart';
 import 'package:online_market_client/screens/details/details_screen.dart';
 
@@ -12,12 +13,14 @@ class ProductCard extends StatelessWidget {
     this.width = 140,
     this.aspectRatio = 0.6,
     this.padding = EdgeInsets.zero,
+    this.size = Sizes.medium,
     required this.product,
   }) : super(key: key);
 
   final double width, aspectRatio;
   final Product product;
   final EdgeInsetsGeometry padding;
+  final Sizes size;
 
   @override
   Widget build(BuildContext context) {
@@ -50,21 +53,27 @@ class ProductCard extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               SizedBox(
-                height: 40,
-                child: Text(
-                  product.title,
-                  style: const TextStyle(color: Colors.black),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-              ),
+                  height: 40,
+                  child: Text(
+                    product.title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: Sizes.medium == size
+                          ? getProportionateScreenWidth(13)
+                          : getProportionateScreenWidth(12),
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "\$${product.price}",
                     style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
+                      fontSize: Sizes.medium == size
+                          ? getProportionateScreenWidth(18)
+                          : getProportionateScreenWidth(12),
                       fontWeight: FontWeight.w600,
                       color: kPrimaryColor,
                     ),
