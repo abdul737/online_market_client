@@ -8,7 +8,7 @@ class FavoriteWidget extends StatefulWidget {
 
   const FavoriteWidget({
     Key? key,
-    required this.isFavourite,
+    this.isFavourite = false,
   }) : super(key: key);
 
   @override

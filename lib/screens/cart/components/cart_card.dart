@@ -3,7 +3,6 @@ import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/screens/details/components/count_quantity.dart';
 
 import '../../../constants.dart';
-import '../../../size_config.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({
@@ -22,7 +21,7 @@ class CartCard extends StatelessWidget {
           child: AspectRatio(
             aspectRatio: 0.88,
             child: Container(
-              padding: EdgeInsets.all(getProportionateScreenWidth(10)),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: const Color(0xFFF5F6F9),
                 borderRadius: BorderRadius.circular(15),
@@ -34,35 +33,31 @@ class CartCard extends StatelessWidget {
             ),
           ),
         ),
-        IntrinsicWidth(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    cart.product.title,
-                    style: const TextStyle(color: Colors.black, fontSize: 16),
-                    maxLines: 2,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Text(
+                  cart.product.title,
+                  style: const TextStyle(color: Colors.black, fontSize: 16),
+                  maxLines: 2,
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                CountQuantityWidget(isQuantity: cart.numOfItem),
+                Text(
+                  "\$${cart.product.price}",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: kPrimaryColor,
                   ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "\$${cart.product.price}",
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: kPrimaryColor,
-                    ),
-                  ),
-                  CountQuantityWidget(
-                    numOfItems: cart.numOfItem,
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/models/Product.dart';
 
 import '../../../constants.dart';
@@ -10,11 +9,9 @@ class ColorDots extends StatelessWidget {
   const ColorDots({
     Key? key,
     required this.product,
-    required this.cart,
   }) : super(key: key);
 
   final Product product;
-  final Cart cart;
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +30,7 @@ class ColorDots extends StatelessWidget {
             ),
           ),
           Spacer(),
-          CountQuantityWidget(
-            numOfItems: cart.numOfItem,
-          ),
+          CountQuantityWidget(),
         ],
       ),
     );
@@ -55,7 +50,7 @@ class ColorDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(right: 2),
+      margin: const EdgeInsets.only(right: 2),
       padding: EdgeInsets.all(getProportionateScreenWidth(8)),
       height: getProportionateScreenWidth(40),
       width: getProportionateScreenWidth(40),
