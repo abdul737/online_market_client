@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:online_market_client/models/Cart.dart';
-import 'package:online_market_client/screens/details/details_screen.dart';
 
 import 'cart_card.dart';
 
@@ -13,46 +11,24 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  void onDelete(index) {
+    setState(() {
+      demoCarts.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+      ),
       child: ListView.builder(
         itemCount: demoCarts.length,
-        itemBuilder: (context, index) => GestureDetector(
-          onTap: () => Navigator.pushNamed(
-            context,
-            DetailsScreen.routeName,
-            arguments: ProductDetailsArguments(
-              product: demoCarts[index].product,
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Dismissible(
-              key: Key(demoCarts[index].product.id.toString()),
-              direction: DismissDirection.endToStart,
-              onDismissed: (direction) {
-                setState(() {
-                  demoCarts.removeAt(index);
-                });
-              },
-              background: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFFFE6E6),
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Row(
-                  children: [
-                    const Spacer(),
-                    SvgPicture.asset("assets/icons/Trash.svg"),
-                  ],
-                ),
-              ),
-              child: CartCard(cart: demoCarts[index]),
-            ),
-          ),
+        itemBuilder: (context, index) => CartCard(
+          cart: demoCarts[index],
+          context: context,
+          onDelete: () => onDelete(index),
         ),
       ),
     );
