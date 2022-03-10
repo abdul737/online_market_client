@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_market_client/screens/complete_profile/complete_profile_screen.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
@@ -9,15 +10,16 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          ProfilePic(),
-          SizedBox(height: 20),
+          const ProfilePic(),
+          const SizedBox(height: 20),
           ProfileMenu(
             text: "My Account",
             icon: "assets/icons/User Icon.svg",
-            press: () => {},
+            press: () =>
+                Navigator.pushNamed(context, CompleteProfileScreen.routeName),
           ),
           ProfileMenu(
             text: "Notifications",
