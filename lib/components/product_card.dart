@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_market_client/enums.dart';
 import 'package:online_market_client/models/Product.dart';
 import 'package:online_market_client/screens/details/details_screen.dart';
 
@@ -10,17 +11,21 @@ class ProductCard extends StatelessWidget {
   const ProductCard({
     Key? key,
     this.width = 140,
-    this.aspectRatio = 1.02,
+    this.aspectRatio = 0.6,
+    this.padding = EdgeInsets.zero,
+    this.size = Sizes.medium,
     required this.product,
   }) : super(key: key);
 
   final double width, aspectRatio;
   final Product product;
+  final EdgeInsetsGeometry padding;
+  final Sizes size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: getProportionateScreenWidth(20)),
+      padding: padding,
       child: SizedBox(
         width: getProportionateScreenWidth(width),
         child: GestureDetector(
@@ -47,19 +52,28 @@ class ProductCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              Text(
-                product.title,
-                style: const TextStyle(color: Colors.black),
-                overflow: TextOverflow.ellipsis,
-                maxLines: 2,
-              ),
+              SizedBox(
+                  height: 40,
+                  child: Text(
+                    product.title,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: Sizes.medium == size
+                          ? getProportionateScreenWidth(13)
+                          : getProportionateScreenWidth(12),
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  )),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "\$${product.price}",
                     style: TextStyle(
-                      fontSize: getProportionateScreenWidth(18),
+                      fontSize: Sizes.medium == size
+                          ? getProportionateScreenWidth(18)
+                          : getProportionateScreenWidth(12),
                       fontWeight: FontWeight.w600,
                       color: kPrimaryColor,
                     ),
@@ -68,6 +82,7 @@ class ProductCard extends StatelessWidget {
                     alignment: Alignment.centerRight,
                     child: FavoriteWidget(
                       isFavourite: product.isFavourite,
+                      size: size,
                     ),
                   ),
                 ],

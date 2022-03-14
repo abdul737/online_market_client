@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:online_market_client/enums.dart';
 
 import '../size_config.dart';
 
 class FavoriteWidget extends StatefulWidget {
   final bool isFavourite;
+  final Sizes size;
 
   const FavoriteWidget({
     Key? key,
     required this.isFavourite,
+    this.size = Sizes.medium,
   }) : super(key: key);
 
   @override
@@ -28,7 +31,12 @@ class _FavoriteWidgetState extends State<FavoriteWidget> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(getProportionateScreenWidth(2)),
-      width: getProportionateScreenWidth(40),
+      width: Sizes.medium == widget.size
+          ? getProportionateScreenWidth(40)
+          : getProportionateScreenWidth(30),
+      height: Sizes.medium == widget.size
+          ? getProportionateScreenWidth(40)
+          : getProportionateScreenWidth(30),
       child: TextButton(
         onPressed: _toggleFavorite,
         child: SvgPicture.asset(
