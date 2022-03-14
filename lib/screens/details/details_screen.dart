@@ -26,7 +26,9 @@ class DetailsScreen extends StatelessWidget {
         appBar: CustomAppBar(
           rating: args.product.rating,
         ),
-        body: Body(product: args.product),
+        body: Body(
+          product: args.product,
+        ),
       ),
     );
   }

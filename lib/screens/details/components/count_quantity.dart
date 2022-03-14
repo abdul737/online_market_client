@@ -5,7 +5,12 @@ const minQuantity = 1;
 const maxQuantity = 100;
 
 class CountQuantityWidget extends StatefulWidget {
-  const CountQuantityWidget({Key? key}) : super(key: key);
+  final int isQuantity;
+
+  const CountQuantityWidget({
+    Key? key,
+    this.isQuantity = 1,
+  }) : super(key: key);
 
   @override
   _CountQuantityWidgetState createState() => _CountQuantityWidgetState();
@@ -13,6 +18,13 @@ class CountQuantityWidget extends StatefulWidget {
 
 class _CountQuantityWidgetState extends State<CountQuantityWidget> {
   int quantity = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    quantity = widget.isQuantity;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,7 +32,7 @@ class _CountQuantityWidgetState extends State<CountQuantityWidget> {
         RoundedIconBtn(icon: Icons.remove, press: _subtractQuantity),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text('$quantity'),
+          child: Text('${quantity}'),
         ),
         RoundedIconBtn(icon: Icons.add, press: _addQuantity)
       ],

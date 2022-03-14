@@ -10,7 +10,7 @@ class FavoriteWidget extends StatefulWidget {
 
   const FavoriteWidget({
     Key? key,
-    required this.isFavourite,
+    this.isFavourite = false,
     this.size = Sizes.medium,
   }) : super(key: key);
 

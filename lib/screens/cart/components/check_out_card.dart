@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_market_client/components/default_button.dart';
 
 import '../../../constants.dart';
-import '../../../size_config.dart';
 
 class CheckoutCard extends StatelessWidget {
   const CheckoutCard({
@@ -13,10 +12,7 @@ class CheckoutCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        vertical: getProportionateScreenWidth(15),
-        horizontal: getProportionateScreenWidth(30),
-      ),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
       // height: 174,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -26,7 +22,7 @@ class CheckoutCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, -15),
+            offset: const Offset(0, -15),
             blurRadius: 20,
             color: const Color(0xFFDADADA).withOpacity(0.15),
           )
@@ -41,15 +37,15 @@ class CheckoutCard extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.all(10),
-                  height: getProportionateScreenWidth(40),
-                  width: getProportionateScreenWidth(40),
+                  height: 40,
+                  width: 40,
                   decoration: BoxDecoration(
                     color: const Color(0xFFF5F6F9),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: SvgPicture.asset("assets/icons/receipt.svg"),
                 ),
-                Spacer(),
+                const Spacer(),
                 const Text("Add voucher code"),
                 const SizedBox(width: 10),
                 const Icon(
@@ -59,7 +55,7 @@ class CheckoutCard extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: getProportionateScreenHeight(20)),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -75,7 +71,7 @@ class CheckoutCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: getProportionateScreenWidth(190),
+                  width: 190,
                   child: DefaultButton(
                     text: "Check Out",
                     press: () {},
