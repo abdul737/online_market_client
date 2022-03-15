@@ -5,10 +5,8 @@ import 'package:online_market_client/components/default_button.dart';
 import '../../../constants.dart';
 
 class CheckoutCard extends StatelessWidget {
-  const CheckoutCard({
-    Key? key,
-  }) : super(key: key);
-
+  const CheckoutCard({Key? key, required this.total}) : super(key: key);
+  final double total;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,13 +57,14 @@ class CheckoutCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                        text: "\$337.15",
-                        style: TextStyle(fontSize: 16, color: Colors.black),
+                        text: '$total',
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),

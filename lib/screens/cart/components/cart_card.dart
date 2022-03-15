@@ -77,7 +77,7 @@ class CartCard extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
-                        child: CountQuantityWidget(isQuantity: cart.numOfItem),
+                        child: CountQuantityWidget(quantity: cart.numOfItem),
                       ),
                       _wrapWithGestureDetector(
                         Text(
