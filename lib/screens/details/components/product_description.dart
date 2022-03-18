@@ -38,7 +38,7 @@ class ProductDescription extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(
-            left: getProportionateScreenWidth(20),
+            left: 20,
             right: getProportionateScreenWidth(64),
           ),
           child: Text(
