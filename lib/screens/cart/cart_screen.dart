@@ -17,7 +17,7 @@ class CartScreen extends StatelessWidget {
         subtitle: "${demoCarts.length} items",
       ),
       body: const Body(),
-      bottomNavigationBar:  CheckoutCard(total: , ),
+      bottomNavigationBar: const CheckoutCard(),
     );
   }
 }
