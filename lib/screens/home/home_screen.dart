@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:online_market_client/components/coustom_bottom_nav_bar.dart';
 import 'package:online_market_client/constants.dart';
-import 'package:online_market_client/enums.dart';
 
 import 'components/body.dart';
 
@@ -18,10 +16,7 @@ class HomeScreen extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
         statusBarBrightness: Brightness.light, // For iOS (dark icons)
       ),
-      child: Scaffold(
-        body: Body(),
-        bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.home),
-      ),
+      child: Body(),
     );
   }
 }
