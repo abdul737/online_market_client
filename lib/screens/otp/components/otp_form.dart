@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/screens/home/home_screen.dart';
+import 'package:online_market_client/screens/navigation/navigation_screen.dart';
 import 'package:online_market_client/size_config.dart';
 
 import '../../../constants.dart';
@@ -41,7 +41,10 @@ class _OtpFormState extends State<OtpForm> {
   }
 
   void checkOtpCode() {
-    Navigator.pushNamed(context, HomeScreen.routeName);
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      NavigationScreen.routeName,
+      (Route<dynamic> route) => false,
+    );
   }
 
   @override

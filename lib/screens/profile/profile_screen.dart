@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/common_app_bar.dart';
-import 'package:online_market_client/screens/home/bottom_nav_bar.dart';
 
 import 'components/body.dart';
 
@@ -11,11 +10,8 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CommonAppBar(
-        title: "Profile",
-      ),
+      appBar: CommonAppBar(title: "Profile"),
       body: Body(),
-      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
