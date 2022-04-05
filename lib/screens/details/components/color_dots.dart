@@ -30,7 +30,11 @@ class ColorDots extends StatelessWidget {
             ),
           ),
           Spacer(),
-          CountQuantityWidget(),
+          CountQuantityWidget(
+            quantity: 1,
+            addQuantity: () => {},
+            subtractQuantity: () => {},
+          ),
         ],
       ),
     );
