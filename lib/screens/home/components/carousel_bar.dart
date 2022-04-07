@@ -8,9 +8,9 @@ class CarouselBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
         options: CarouselOptions(
-          height: 85,
-          autoPlayInterval: const Duration(milliseconds: 5),
-          autoPlayAnimationDuration: const Duration(milliseconds: 380),
+          enlargeCenterPage: true,
+          height: 130,
+          autoPlayInterval: const Duration(milliseconds: 2),
           autoPlay: true,
         ),
         items: a.toList());
@@ -18,20 +18,32 @@ class CarouselBar extends StatelessWidget {
 
   List<Widget> a = [
     Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      margin: EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('A Summer Surpise'),
-          Text(
-            'Cashback 20%',
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 30),
-          ),
-        ],
+      // height: 90,
+      width: double.infinity,
+      margin: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 15,
       ),
-      color: Colors.deepPurple,
-    ),
+      decoration: BoxDecoration(
+        color: const Color(0xFF4A3298),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: const Text.rich(
+        TextSpan(
+          style: TextStyle(color: Colors.white),
+          children: [
+            TextSpan(text: "A Summer Surpise\n"),
+            TextSpan(
+              text: "Cashback 20%",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    )
   ];
 }
