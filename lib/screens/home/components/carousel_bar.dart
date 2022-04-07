@@ -1,28 +1,37 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:online_market_client/models/Product.dart';
 
 class CarouselBar extends StatelessWidget {
   CarouselBar({Key? key}) : super(key: key);
-  CarouselController buttonCarouselController = CarouselController();
+
   @override
-  Widget build(BuildContext context) => Column(children: <Widget>[
-        CarouselSlider(
-          items: List.generate(demoProducts.length, (index) {
-            return Image.asset('assets/images/Image Popular Product 2.png');
-          }),
-          carouselController: buttonCarouselController,
-          options: CarouselOptions(
-            enlargeCenterPage: true,
-            viewportFraction: 0.9,
-            aspectRatio: 2,
-            initialPage: 3,
-          ),
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+        options: CarouselOptions(
+          height: 85,
+          autoPlayInterval: const Duration(milliseconds: 5),
+          autoPlayAnimationDuration: const Duration(milliseconds: 380),
+          autoPlay: true,
         ),
-        // ElevatedButton(
-        //     onPressed: () => buttonCarouselController.nextPage(
-        //         duration: const Duration(milliseconds: 100),
-        //         curve: Curves.linear),
-        //     child: const Text('->'))
-      ]);
+        items: a.toList());
+  }
+
+  List<Widget> a = [
+    Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      margin: EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('A Summer Surpise'),
+          Text(
+            'Cashback 20%',
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.w600, fontSize: 30),
+          ),
+        ],
+      ),
+      color: Colors.deepPurple,
+    ),
+  ];
 }
