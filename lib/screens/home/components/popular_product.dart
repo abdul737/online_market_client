@@ -6,9 +6,7 @@ import 'package:online_market_client/screens/products/products_screen.dart';
 import 'section_title.dart';
 
 class PopularProducts extends StatelessWidget {
-  const PopularProducts({Key? key, this.popular = 'Popular Products'})
-      : super(key: key);
-  final String popular;
+  const PopularProducts({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class PopularProducts extends StatelessWidget {
             press: () => Navigator.pushNamed(
               context,
               ProductsScreen.routeName,
-              arguments: ProductsScreenArguments(title: popular),
+              arguments: ProductsScreenArguments(title: 'Popular Products'),
             ),
           ),
         ),
