@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/models/Product.dart';
 
-class Data with ChangeNotifier, DiagnosticableTreeMixin {
+class CartProvider with ChangeNotifier, DiagnosticableTreeMixin {
   // Demo data for our cart
   List<Cart> _demoCarts = [
     Cart(product: demoProducts[0], numOfItem: 2),

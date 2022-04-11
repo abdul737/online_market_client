@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/components/provider.dart';
+import 'package:online_market_client/components/cart_provider.dart';
 import 'package:online_market_client/models/Cart.dart';
 import 'package:provider/provider.dart';
 
@@ -14,12 +14,12 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   void onDelete(index) {
-    context.read<Data>().removeAt(index);
+    context.read<CartProvider>().removeAt(index);
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Cart> demoCarts = context.watch<Data>().demoCarts;
+    List<Cart> demoCarts = context.watch<CartProvider>().demoCarts;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 15,

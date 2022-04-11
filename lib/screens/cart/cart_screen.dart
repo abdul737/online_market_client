@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_market_client/components/common_app_bar.dart';
-import 'package:online_market_client/components/provider.dart';
+import 'package:online_market_client/components/cart_provider.dart';
 import 'package:online_market_client/models/Cart.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +13,7 @@ class CartScreen extends StatelessWidget {
   static String routeName = "/cart";
   @override
   Widget build(BuildContext context) {
-    List<Cart> demoCarts = context.watch<Data>().demoCarts;
+    List<Cart> demoCarts = context.watch<CartProvider>().demoCarts;
     return Scaffold(
       appBar: CommonAppBar(
         title: 'Your cart',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:online_market_client/components/provider.dart';
+import 'package:online_market_client/components/cart_provider.dart';
 import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/screens/details/components/count_quantity.dart';
 import 'package:online_market_client/screens/details/details_screen.dart';
@@ -36,16 +36,16 @@ class CartCard extends StatelessWidget {
   }
 
   void _addQuantity(index) {
-    int quantity = context.read<Data>().getQuantity(index);
+    int quantity = context.read<CartProvider>().getQuantity(index);
     if (maxQuantity > quantity) {
-      context.read<Data>().addQuantity(index);
+      context.read<CartProvider>().addQuantity(index);
     }
   }
 
   void _subtractQuantity(index) {
-    int quantity = context.read<Data>().getQuantity(index);
+    int quantity = context.read<CartProvider>().getQuantity(index);
     if (minQuantity < quantity) {
-      context.read<Data>().subtractQuantity(index);
+      context.read<CartProvider>().subtractQuantity(index);
     }
   }
 

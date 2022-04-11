@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/components/provider.dart';
+import 'package:online_market_client/components/cart_provider.dart';
 import 'package:online_market_client/routes.dart';
 import 'package:online_market_client/screens/splash/splash_screen.dart';
 import 'package:online_market_client/theme.dart';
@@ -9,7 +9,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => Data()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: const MyApp(),
     ),
@@ -22,17 +22,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Data>(
-      create: (context) => Data(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: theme(),
-        // home: SplashScreen(),
-        // We use routeName so that we dont need to remember the name
-        initialRoute: SplashScreen.routeName,
-        routes: routes,
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: theme(),
+      // home: SplashScreen(),
+      // We use routeName so that we dont need to remember the name
+      initialRoute: SplashScreen.routeName,
+      routes: routes,
     );
   }
 }

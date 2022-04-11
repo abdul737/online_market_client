@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_market_client/components/provider.dart';
+import 'package:online_market_client/components/cart_provider.dart';
 import 'package:online_market_client/models/Cart.dart';
 import 'package:online_market_client/screens/cart/cart_screen.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +15,7 @@ class HomeHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Cart> demoCarts = context.watch<Data>().demoCarts;
+    List<Cart> demoCarts = context.watch<CartProvider>().demoCarts;
 
     return Padding(
       padding:
