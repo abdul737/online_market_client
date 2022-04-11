@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_market_client/components/default_button.dart';
+import 'package:online_market_client/components/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
 
 class CheckoutCard extends StatelessWidget {
-  const CheckoutCard({
-    Key? key,
-  }) : super(key: key);
+  const CheckoutCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +59,14 @@ class CheckoutCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text.rich(
+                Text.rich(
                   TextSpan(
                     text: "Total:\n",
                     children: [
                       TextSpan(
-                        text: "\$337.15",
-                        style: TextStyle(fontSize: 16, color: Colors.black),
+                        text: '\$${context.watch<CartProvider>().getSum}',
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
                       ),
                     ],
                   ),

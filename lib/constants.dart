@@ -54,3 +54,6 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: const BorderSide(color: kTextColor),
   );
 }
+
+const int minQuantity = 1;
+const int maxQuantity = 100;
