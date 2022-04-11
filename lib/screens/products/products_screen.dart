@@ -9,11 +9,21 @@ class ProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final ProductsScreenArguments? args =
+        ModalRoute.of(context)!.settings.arguments as ProductsScreenArguments?;
+    final title = args == null ? 'Products' : args.title;
+
+    return Scaffold(
       appBar: CommonAppBar(
-        title: "Products",
+        title: title,
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
+}
+
+class ProductsScreenArguments {
+  final String title;
+
+  ProductsScreenArguments({required this.title});
 }
