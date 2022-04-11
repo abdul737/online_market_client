@@ -18,6 +18,7 @@ const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF4C4C4C);
 
 const kAnimationDuration = Duration(milliseconds: 200);
+const int carouselAutoplayDuration = 5;
 
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),
