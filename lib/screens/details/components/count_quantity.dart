@@ -32,7 +32,7 @@ class _CountQuantityWidgetState extends State<CountQuantityWidget> {
         RoundedIconBtn(icon: Icons.remove, press: _subtractQuantity),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text('${quantity}'),
+          child: Text('$quantity'),
         ),
         RoundedIconBtn(icon: Icons.add, press: _addQuantity)
       ],
