@@ -10,7 +10,7 @@ const Color inActiveIconColor = Color(0xFFB6B6B6);
 const _bottomNavIcons = [
   "assets/icons/Shop Icon.svg",
   "assets/icons/Heart Icon.svg",
-  "assets/icons/Chat bubble Icon.svg",
+  "assets/icons/Cart Icon.svg",
   "assets/icons/User Icon.svg",
 ];
 
